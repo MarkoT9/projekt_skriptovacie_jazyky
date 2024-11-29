@@ -28,7 +28,7 @@ $result = $conn->query($sql);
             <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-xl navbar-light bg-light">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="index.php">
                             <i class="fas fa-3x fa-tachometer-alt tm-site-icon"></i>
                             <h1 class="tm-site-title mb-0">Dashboard</h1>
                         </a>
@@ -38,13 +38,13 @@ $result = $conn->query($sql);
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mx-auto">
-                                <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
-                                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                                <li class="nav-item"><a class="nav-link" href="accounts.html">Accounts</a></li>
+                                <li class="nav-item"><a class="nav-link" href="index.php">Dashboard</a></li>
+                                <li class="nav-item"><a class="nav-link" href="products.php">Products</a></li>
+                                <li class="nav-item"><a class="nav-link" href="accounts.php">Accounts</a></li>
                             </ul>
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link d-flex" href="login.html">
+                                    <a class="nav-link d-flex" href="login.php">
                                         <i class="far fa-user mr-2 tm-logout-icon"></i>
                                         <span>Logout</span>
                                     </a>
@@ -124,7 +124,7 @@ $result = $conn->query($sql);
     <script>
         $(function () {
             $('.tm-product-name').on('click', function () {
-                window.location.href = "edit-product.html";
+                window.location.href = "edit-product.php";
             });
         });
     </script>
