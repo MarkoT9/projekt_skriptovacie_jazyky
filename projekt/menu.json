@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Dashboard",
+        "url": "index.php"
+    },
+    {
+        "name": "Products",
+        "url": "products.php"
+    },
+    {
+        "name": "Accounts",
+        "url": "accounts.php"
+    }
+]

@@ -59,7 +59,7 @@ $topProducts = $product->readTopProducts(10);
                             <?php foreach ($topProducts as $product): ?>
                                 <li class="tm-list-group-item">
                                     <?php echo htmlspecialchars($product['product_name']); ?>
-                                    <span class="text-muted">(Sold: <?php echo $product['units_sold']; ?>)</span>
+                                    <span class="text-muted">(Predané: <?php echo $product['units_sold']; ?>)</span>
                                 </li>
                             <?php endforeach; ?>
                         <?php else: ?>

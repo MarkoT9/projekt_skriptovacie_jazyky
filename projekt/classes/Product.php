@@ -10,26 +10,26 @@ class Product {
 
     // Vytvor produkt
     public function create($productName, $category, $description, $inStock, $unitsSold, $expireDate) {
-        // Prepare the SQL statement with additional fields
+        // Priprav SQL dopyt s ďalšími polami
         $stmt = $this->conn->prepare(
             "INSERT INTO products (product_name, category, description, in_stock, units_sold, expire_date) 
         VALUES (?, ?, ?, ?, ?, ?)"
         );
 
-        // Bind the parameters, ensuring correct types for each field
+        // Pripoj parametre a zabezpeč správne typy pre každé pole
         $stmt->bind_param("sssiis", $productName, $category, $description, $inStock, $unitsSold, $expireDate);
 
-        // Execute the query and return the result
+        // Spusti dopyt a vráť výsledok
         return $stmt->execute();
     }
 
-    // Zobraz
+    // Zobraz všetky produkty
     public function readAll() {
         $sql = "SELECT * FROM products";
         return $this->conn->query($sql);
     }
 
-    // Zobraz podla id
+    // Zobraz produkt podľa id
     public function readOne($id) {
         $stmt = $this->conn->prepare("SELECT id, product_name, category, description, units_sold, in_stock, expire_date FROM products WHERE id = ?");
         $stmt->bind_param("i", $id);
@@ -37,7 +37,7 @@ class Product {
         return $stmt->get_result()->fetch_assoc();
     }
 
-    // Update
+    // Aktualizuj produkt
     public function update($id, $productName, $category, $description, $inStock, $unitsSold, $expireDate) {
         $stmt = $this->conn->prepare(
             "UPDATE products 
@@ -53,7 +53,7 @@ class Product {
         return $stmt->execute();
     }
 
-    // Vymaz
+    // Vymaž produkt
     public function delete($id) {
         $stmt = $this->conn->prepare("DELETE FROM products WHERE id = ?");
         $stmt->bind_param("i", $id);

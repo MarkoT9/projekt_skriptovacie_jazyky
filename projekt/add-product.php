@@ -66,9 +66,10 @@ include_once 'parts/nav.php';
                                 <label for="category" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Kategória</label>
                                 <select class="custom-select col-xl-9 col-lg-8 col-md-8 col-sm-7" name="category" required>
                                     <option value="">Vyberte jednu</option>
-                                    <option value="Cras efficitur lacus">Cras efficitur lacus</option>
-                                    <option value="Pellentesque molestie">Pellentesque molestie</option>
-                                    <option value="Sed feugiat nulla">Sed feugiat nulla</option>
+                                    <option value="Oblečenie">Oblečenie</option>
+                                    <option value="Elektronika">Elektronika</option>
+                                    <option value="Nábytok">Nábytok</option>
+                                    <option value="Kuchynské potreby">Kuchynské potreby</option>
                                 </select>
                             </div>
                             <div class="input-group mb-3">
@@ -85,15 +86,6 @@ include_once 'parts/nav.php';
                                 </div>
                             </div>
                         </form>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-12 mx-auto mb-4">
-                        <div class="tm-product-img-dummy mx-auto">
-                            <i class="fas fa-5x fa-cloud-upload-alt" onclick="document.getElementById('fileInput').click();"></i>
-                        </div>
-                        <div class="custom-file mt-3 mb-3">
-                            <input id="fileInput" type="file" style="display:none;" />
-                            <input type="button" class="btn btn-primary d-block mx-auto" value="Nahrať ..." onclick="document.getElementById('fileInput').click();" />
-                        </div>
                     </div>
                 </div>
             </div>

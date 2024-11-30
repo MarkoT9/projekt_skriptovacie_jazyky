@@ -33,9 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $category = $_POST['category'];
     $expireDate = $_POST['expire_date'];
     $inStock = $_POST['in_stock'];
+    $unitsSold = $_POST['units_sold'];  // Získajte predané jednotky
 
     // Zavolajte metódu na aktualizáciu
-    $result = $product->update($productId, $productName ,$category ,$description ,$inStock ,0 ,$expireDate);  // Predpokladáme, že units_sold je 0 na začiatku
+    $result = $product->update($productId, $productName, $category, $description, $inStock, $unitsSold, $expireDate);  // Predané jednotky sú teraz zahrnuté
 
     if ($result) {
         echo "Produkt bol úspešne aktualizovaný!";
@@ -84,9 +85,10 @@ include_once 'parts/nav.php';
                                 <label for="category" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Kategória</label>
                                 <select class="custom-select col-xl-9 col-lg-8 col-md-8 col-sm-7" name="category" required>
                                     <option value="">Vyberte jednu</option>
-                                    <option value="Cras efficitur lacus" <?php echo $productData['category'] == 'Cras efficitur lacus' ? 'selected' : ''; ?>>Cras efficitur lacus</option>
-                                    <option value="Pellentesque molestie" <?php echo $productData['category'] == 'Pellentesque molestie' ? 'selected' : ''; ?>>Pellentesque molestie</option>
-                                    <option value="Sed feugiat nulla" <?php echo $productData['category'] == 'Sed feugiat nulla' ? 'selected' : ''; ?>>Sed feugiat nulla</option>
+                                    <option value="Oblečenie" <?php echo $productData['category'] == 'Oblečenie' ? 'selected' : ''; ?>>Oblečenie</option>
+                                    <option value="Elektronika" <?php echo $productData['category'] == 'Elektronika' ? 'selected' : ''; ?>>Elektronika</option>
+                                    <option value="Nábytok" <?php echo $productData['category'] == 'Nábytok' ? 'selected' : ''; ?>>Nábytok</option>
+                                    <option value="Kuchynské potreby" <?php echo $productData['category'] == 'Kuchynské potreby' ? 'selected' : ''; ?>>Kuchynské potreby</option>
                                 </select>
                             </div>
                             <div class="input-group mb-3">
@@ -98,20 +100,15 @@ include_once 'parts/nav.php';
                                 <input id="stock" name="in_stock" type="number" class="form-control validate col-xl-9 col-lg-8 col-md-7 col-sm-7" value="<?php echo htmlspecialchars($productData['in_stock']); ?>" required>
                             </div>
                             <div class="input-group mb-3">
+                                <label for="units_sold" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Predané jednotky</label>
+                                <input id="units_sold" name="units_sold" type="number" class="form-control validate col-xl-9 col-lg-8 col-md-7 col-sm-7" value="<?php echo htmlspecialchars($productData['units_sold']); ?>" required>
+                            </div>
+                            <div class="input-group mb-3">
                                 <div class="ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0">
                                     <button type="submit" class="btn btn-primary">Aktualizovať</button>
                                 </div>
                             </div>
                         </form>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-12 mx-auto mb-4">
-                        <div class="tm-product-img-dummy mx-auto">
-                            <i class="fas fa-5x fa-cloud-upload-alt" onclick="document.getElementById('fileInput').click();"></i>
-                        </div>
-                        <div class="custom-file mt-3 mb-3">
-                            <input id="fileInput" type="file" style="display:none;" />
-                            <input type="button" class="btn btn-primary d-block mx-auto" value="Nahrať ..." onclick="document.getElementById('fileInput').click();" />
-                        </div>
                     </div>
                 </div>
             </div>
