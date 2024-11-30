@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2024 at 11:43 PM
+-- Generation Time: Nov 30, 2024 at 01:03 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `dashboard`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu`
+--
+
+CREATE TABLE `menu` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `menu`
+--
+
+INSERT INTO `menu` (`id`, `name`, `url`) VALUES
+(1, 'Dashboard', 'index.php'),
+(2, 'Products', 'products.php'),
+(3, 'Accounts', 'accounts.php');
 
 -- --------------------------------------------------------
 
@@ -42,15 +63,21 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `product_name`, `category`, `description`, `in_stock`, `units_sold`, `expire_date`) VALUES
-(1, 'Product A', 'Category 1', 'Description of Product A', 50, 120, '2025-12-31'),
-(2, 'Product B', 'Category 2', 'Description of Product B', 100, 200, '2024-06-30'),
-(3, 'Product C', 'Category 1', 'Description of Product C', 200, 500, '2026-05-15'),
-(4, 'Product D', 'Category 3', 'Description of Product D', 150, 100, '2023-09-20'),
-(5, 'Product E', 'Category 2', 'Description of Product E', 80, 250, '2025-01-10');
+(22, 'Tričko', 'Oblečenie', 'Jednoduché bavlnené tričko v rôznych farbách.', 101, 26, '2025-12-31'),
+(23, 'Bezdrôtová myš', 'Elektronika', 'Bezdrôtová myš na batérie pre počítače.', 50, 10, '2026-06-30'),
+(24, 'Stolná lampa', 'Nábytok', 'Malá LED stolná lampa s nastaviteľnou intenzitou svetla.', 30, 5, '2027-01-15'),
+(25, 'Bluetooth reproduktor', 'Elektronika', 'Prenosný Bluetooth reproduktor s kvalitným zvukom.', 80, 40, '2026-08-10'),
+(26, 'Kávový hrnček', 'Kuchynské potreby', 'Keramický kávový hrnček s jednoduchým dizajnom.', 200, 100, '2025-11-20');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `products`
@@ -63,10 +90,16 @@ ALTER TABLE `products`
 --
 
 --
+-- AUTO_INCREMENT for table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
